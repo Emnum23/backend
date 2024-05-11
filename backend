@@ -1,0 +1,24 @@
+<?php
+// Connect to database
+$conn = mysqli_connect("localhost", "username", "password", "database");
+
+// Check if form is submitted
+if (isset($_POST['password'])) {
+    // Get password from form
+    $password = $_POST['password'];
+
+    // Check if password is valid
+    $query = "SELECT * FROM users WHERE password = '$password'";
+    $result = mysqli_query($conn, $query);
+    if (mysqli_num_rows($result) > 0) {
+        // Password is valid, grant access
+        echo "Welcome! You are now logged in.";
+    } else {
+        // Password is invalid, show error message
+        echo "Invalid password.";
+    }
+}
+
+// Close database connection
+mysqli_close($conn);
+?>
