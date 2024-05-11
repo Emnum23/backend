@@ -22,3 +22,13 @@ if (isset($_POST['password'])) {
 // Close database connection
 mysqli_close($conn);
 ?>
+
+{
+    "name": "myapp",
+    "description": "My Backend App",
+    "version": "1.0.0",
+    "require": {
+        "php": "^7.2",
+        "symfony/dependency-injection": "^4.2"
+    }
+}
